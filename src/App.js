@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import uniqid from 'uniqid';
+
+//import BookContextProvider from './Contexts/BookContext';
+import Dashboard from './Components/Dashboard/Dashboard';
 import './App.css';
 
-function App() {
+
+const App = () => {
+
+  const [books, setBooks] = useState([
+    {
+        id: 1,
+        title: 'Game of Thrones',
+        author: 'George R. R. Martin',
+    },
+    {
+        id: 2,
+        title: 'Don Quijote de la Mancha',
+        author: 'Miguel de Cervantes',
+    },
+  ]);
+
+  const addBook = book => {
+      setBooks([{ ...book, id: uniqid() }, ...books]);
+  };
+
+  const deleteBook = id => {
+      setBooks(books.filter(book => book.id !== id));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Dashboard books={books} addBook={addBook} deleteBook={deleteBook}/>
   );
 }
 
