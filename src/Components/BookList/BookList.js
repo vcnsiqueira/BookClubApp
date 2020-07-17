@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BookSection, SectionTitle, List, BookItem, GridBook, BookCardRow, BookCardColumn, BookImage, BookDetails, BookTitle, BookAuthor, BookOptions } from './styled/BookList.styled';
 
-const BookList = props => {
+const BookList = ({ books, deleteBook }) => {
     
-    const { books, deleteBook } = props;
-
     return(
         <BookSection>
             <SectionTitle>Books</SectionTitle>
