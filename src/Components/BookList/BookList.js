@@ -1,39 +1,49 @@
 import React from 'react';
-//import { BookContext } from '../../Contexts/BookContext';
-//import bookThumb from '../book.png';
+import PropTypes from 'prop-types';
+import { BookSection, SectionTitle, List, BookItem, GridBook, BookCardRow, BookCardColumn, BookImage, BookDetails, BookTitle, BookAuthor, BookOptions } from './styled/BookList.styled';
 
 const BookList = props => {
     
     const { books, deleteBook } = props;
 
     return(
-        <div className="section section-books">
-            <div className="container">
-                <h6>Books</h6>
-                <ul>
-                    {books.map(book => (
-                        <li key={book.id}>
-                            <div className="card book">
-                                <div className="book image">
-                                    <i className="fas fa-book"/>
-                                </div>
-                                <div className="book-details">
-                                    <div className="book-title">{book.title}</div>
-                                    <div className="book-author">{book.author}</div>
-                                </div>
-                                <div
-                                    onClick={() => deleteBook(book.id)}
-                                    className="book-delete"
-                                >
-                                    <i clasName="fas fa-trash-alt"/>
-                                </div>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
+        <BookSection>
+            <SectionTitle>Books</SectionTitle>
+            <List>
+                {books.map(book => (
+                    <BookItem key={book.id}>
+                        <GridBook>
+                            <BookCardRow>
+                                <BookCardColumn size={1}>
+                                    <BookImage>
+                                        <i className="fas fa-book"/>
+                                    </BookImage>
+                                </BookCardColumn>
+                                <BookCardColumn size={12}>
+                                    <BookDetails>
+                                        <BookTitle>{book.title}</BookTitle>
+                                        <BookAuthor>{book.author}</BookAuthor>
+                                    </BookDetails>
+                                </BookCardColumn>
+                                <BookCardColumn size={1}>
+                                    <BookOptions
+                                        onClick={() => deleteBook(book.id)}
+                                    >
+                                        <i className="fas fa-trash-alt"/>
+                                    </BookOptions>
+                                </BookCardColumn>
+                            </BookCardRow>
+                        </GridBook>
+                    </BookItem>
+                ))}
+            </List>
+        </BookSection>
     );
+};
+
+BookList.propTypes = {
+    books: PropTypes.object,
+    deleteBook: PropTypes.func,
 };
 
 export default BookList;
