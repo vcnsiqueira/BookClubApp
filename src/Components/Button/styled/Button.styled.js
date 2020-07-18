@@ -6,5 +6,6 @@ export const StyledButton = styled.button`
     color: ${(props) => props.variant !== 'outlined' ? '#FFFFFF' : props.color};
     border-radius: 3px;
     padding: 0.5rem;
+    margin: 0.3rem;
     font-weight: bold;     
 `

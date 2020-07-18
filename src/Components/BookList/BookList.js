@@ -40,7 +40,7 @@ const BookList = ({ books, deleteBook }) => {
 };
 
 BookList.propTypes = {
-    books: PropTypes.object,
+    books: PropTypes.array,
     deleteBook: PropTypes.func,
 };
 
