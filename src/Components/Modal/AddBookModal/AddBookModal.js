@@ -5,7 +5,6 @@ import Label from '../../Label/Label';
 import Input from '../../Input/Input';
 import Button from '../../Button/Button';
 import { Modal, ModalWrapper, ModalHeader, ModalBody, ModalFooter } from '../styled/Modal.styled';
-//import './AddBokkModal.css';
 
 const AddBookModal = ({ show, addBook, handleClose, children }) => {
     
@@ -23,7 +22,6 @@ const AddBookModal = ({ show, addBook, handleClose, children }) => {
 
     const cancelButton = event => {
         event.preventDefault();
-        console.log('Oi');
         setBook({ 
             title: '',
             author: '',
@@ -31,13 +29,34 @@ const AddBookModal = ({ show, addBook, handleClose, children }) => {
          handleClose();
     }
 
+    const submitForm = event => {
+        event.preventDefault();
+        const newBook = book;
+        addBook(newBook);
+        setBook({
+            title: '',
+            author:'',
+        });
+        handleClose();
+    };
+
+    const handleBackground = event => {
+        if(!event.target.closest('.modal-wrapper')){
+            setBook({
+                title: '',
+                author:'',
+            });
+            handleClose();
+        }
+    }
+
     return(
-        <Modal className={show ? "display-block" : "display-none"}>
+        <Modal display={showHideClassName} onClick={handleBackground}>
             <ModalWrapper className="modal-wrapper">
                 <ModalHeader>
                     <h3>{children}</h3>
                 </ModalHeader>
-                <form>
+                <form onSubmit={submitForm}>
                     <ModalBody>
                         <div>
                             <Label>Título:</Label>
@@ -49,8 +68,8 @@ const AddBookModal = ({ show, addBook, handleClose, children }) => {
                         </div>
                     </ModalBody>
                     <ModalFooter>
-                        <Button variant="outlined" color="#66BB6A" type="button" onClick={cancelButton}>Cancelar</Button>
-                        <Button variant="solid" backgroundColor="#4711B2" type="submit">Cadastrar</Button>
+                        <Button variant="outlined" type="button" onClick={cancelButton}>Cancelar</Button>
+                        <Button variant="solid" type="submit">Cadastrar</Button>
                     </ModalFooter>
                 </form>
             </ModalWrapper>

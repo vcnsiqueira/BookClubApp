@@ -10,9 +10,12 @@ export const Modal = styled.div`
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 5px;
+    display: ${(props) => props.display === 'display-block' ? 'block' : 'none'};
+
     .display-block {
         display: block;
     }
+    
     .display-none {
         display: none;
     }

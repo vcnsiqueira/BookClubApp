@@ -6,10 +6,12 @@ export const BookSection = styled.div`
 `;
 
 export const SectionTitle = styled.h3`
-    margin: 10px 10% 5px 10%;
+    margin: 0px 10% 15px 10%;
+    padding: 20px 0;
 `;
 
 export const List = styled.ul`
+    padding: 0;
     list-style-type: none;
 `;
 
@@ -20,7 +22,7 @@ export const BookItem = styled.li`
 export const GridBook = styled.div` /*Grid*/
     margin: 15px 10%;
     border-bottom: 1px solid #E5E5E5;
-    border-radius: 3px;
+    border-radius: 10px;
     padding: 1.5rem;
     background-color: #FFFFFF;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -57,4 +59,8 @@ export const BookAuthor = styled.div`
 export const BookOptions = styled.div`
     right: 0px;
     bottom: 0px;
+`;
+
+export const BookNullMessage = styled.div`
+    font-size: 0.8rem;
 `;

@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 import BookList from '../BookList/BookList';
 import Button from '../Button/Button';
 import AddBookModal from '../Modal/AddBookModal/AddBookModal';
-//import BookForm from '../BookForm/BookForm';
 
 const Dashboard = ({books, addBook, deleteBook}) => {
     
@@ -20,12 +20,17 @@ const Dashboard = ({books, addBook, deleteBook}) => {
                 color='#FF9626' 
                 onClick={toggleAddModal}
             >
-            Add <i className="fas fa-plus-circle"/>
+            Novo Livro <i className="fas fa-plus-circle"/>
             </Button>
             <AddBookModal show={showAddModal} handleClose={toggleAddModal} addBook={addBook}>Adicionar Livro</AddBookModal>
-            {/*<BookForm addBook={addBook}/>*/}
         </Fragment>
     );
 }
+
+Dashboard.propTypes = {
+    books: PropTypes.array,
+    addBook: PropTypes.func,
+    deleteBook: PropTypes.func,
+};
 
 export default Dashboard;

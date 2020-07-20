@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledInput } from './styled/Input.styled';
 
-const Input = ({ type, name, value, onChange, placeholder }) => {
+const Input = ({ type, name, value, onChange, placeholder, required }) => {
     return(
         <StyledInput 
             type={type} 
@@ -10,6 +10,7 @@ const Input = ({ type, name, value, onChange, placeholder }) => {
             value={value} 
             onChange={onChange} 
             placeholder={placeholder}
+            required={required}
         />
     );
 }
