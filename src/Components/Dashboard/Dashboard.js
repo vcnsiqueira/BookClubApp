@@ -17,7 +17,6 @@ const Dashboard = ({books, addBook, deleteBook}) => {
             <BookList books={books} deleteBook={deleteBook}/>
             <Button 
                 variant='solid' 
-                color='#FF9626' 
                 onClick={toggleAddModal}
             >
             Novo Livro <i className="fas fa-plus-circle"/>

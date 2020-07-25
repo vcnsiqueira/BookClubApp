@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
+const color = '#3F51B5';
+
 export const BookSection = styled.div`
     background: #F5F5F5;
-    border-bottom: 1px solid #E0E0E0;
 `;
 
 export const SectionTitle = styled.h3`
     margin: 0px 10% 15px 10%;
     padding: 20px 0;
+    color: ${color};
 `;
 
 export const List = styled.ul`
@@ -41,6 +43,7 @@ export const BookCardColumn = styled.div`
 export const BookImage = styled.div`
     i {
         max-width: 50px;
+        color: ${color};
     }
 `;
 
@@ -59,6 +62,7 @@ export const BookAuthor = styled.div`
 export const BookOptions = styled.div`
     right: 0px;
     bottom: 0px;
+    color: ${color};
 `;
 
 export const BookNullMessage = styled.div`

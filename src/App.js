@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import uniqid from 'uniqid';
+import './App.css';
 
-//import BookContextProvider from './Contexts/BookContext';
 import Dashboard from './Components/Dashboard/Dashboard';
-//import './App.css';
+import Navbar from './Components/Navbar/Navbar';
 
 
 const App = () => {
@@ -30,7 +30,10 @@ const App = () => {
   };
 
   return (
-      <Dashboard books={books} addBook={addBook} deleteBook={deleteBook}/>
+      <Fragment>
+        <Navbar />
+        <Dashboard books={books} addBook={addBook} deleteBook={deleteBook}/>
+      </Fragment>
   );
 }
 
