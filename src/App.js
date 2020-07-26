@@ -7,12 +7,14 @@ import Home from './Pages/Home/Home';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import Error from './Pages/Error/Error';
+import Navbar from './Components/Navbar/Navbar';
 
 
 const App = () => {
   return (
       <Fragment>
         <BrowserRouter>
+            <Navbar />
             <Switch>
                 <Route path="/" component={Home} exact/>
                 <Route path="/about" component={About}/>

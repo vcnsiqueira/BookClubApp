@@ -29,7 +29,6 @@ const Home = () => {
 
   return (
     <Fragment>
-        <Navbar />
         <Dashboard books={books} addBook={addBook} deleteBook={deleteBook}/>
     </Fragment>    
   );
